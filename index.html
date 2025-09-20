@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DTF - API</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="bg-[#0d1412] text-white font-sans flex flex-col min-h-screen">
+
+        <!-- Header -->
+        <header class="flex justify-between items-center p-6 w-[70%] mx-auto">
+            <h1 class="text-white text-lg">
+                <span class="font-semibold dune anim-up delay-1">API</span> - 
+                <span class="neon-green chetta anim-up delay-2">Transformación</span> <span class="gruppo-regular anim-up delay-2">Digital</span>
+            </h1>
+            <div class="neon-green">
+                <!-- Icono de globo terráqueo -->
+                <a href="https://suameca.banrep.gov.co/estadisticas-economicas/informacionSerie/220003/tasas_interes_cdt_dtf" target="_blank">
+                    <img src="img/redmundial.png" alt="Mundo moviendose" class="w-8 h-8 animate-pulse text-[#39ff14] drop-shadow-[0_0_10px_#39ff14] rotate-slow">
+                </a>
+            </div>
+        </header>
+
+        <!-- Main Section -->
+        <main class="flex flex-col lg:flex-row justify-center items-center flex-grow px-6 lg:px-20 w-[80%] mx-auto">
+            <!-- Fondo con letras DTF -->
+            <div class="relative flex justify-center items-center w-full lg:w-1/2">
+                <h2 class="text-[12rem] font-bold text-white opacity-60 fade-in-scale delay-1">DTF</h2>
+                <!-- Circulo difuminado (glow effect) -->
+                <div class="absolute w-72 h-72 rounded-full bg-gradient-to-tr from-[#39ff14] opacity-70 blur-1xl fade-in-scale delay-2"></div>
+            </div>
+
+            <!-- Texto principal -->
+            <div class="text-center lg:text-center lg:w-1/2 z-10">
+                <h2 class="typewriter text-4xl md:text-5xl font-bold mb-4">
+                    Reinventar el <span class="chetta">presente</span>
+                </h2>
+                <p class="fade-in text-2xl lg:text-center mb-6 poppins-medium">
+                    para conquistar el <span class="dune">Futuro.</span>
+                </p>
+                <button class="fade-in-scale delay-2 bg-neon-green hover-bg-neon-green text-black font-medium px-8 py-3 rounded-full text-lg transition chetta">
+                    Enviar
+                </button>
+
+                <!------------ Contenedor oculto para mostrar la DFT   ---------->
+                <div id="dtfInfo" class="hidden">
+                    <p id="dtfFechaDesde" class="poppins-regular"></p>
+                    <p id="dtfFechaHasta" class="poppins-regular"></p>
+                    <p id="dtfTasaEfectivaAnual" class="poppins-regular"></p>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center text-sm text-gray-400 py-4 poppins-light">
+            © 2025 <span class="neon-green">BetelWare</span> · Transformación Digital by 
+            <span class="neon-green">DFRN</span> · 
+            · Todos los derechos reservados.
+        </footer>
+
+        <script>
+            const btn = document.querySelector("button");
+            const dtfInfo = document.getElementById("dtfInfo");
+            const dtfFechaDesde = document.getElementById("dtfFechaDesde");
+            const dtfFechaHasta = document.getElementById("dtfFechaHasta");
+            const dtfTasaEfectivaAnual = document.getElementById("dtfTasaEfectivaAnual");
+            btn.addEventListener("click", async () => {
+
+                dtfInfo.classList.add("hidden"); // Oculta antes de cargar
+                dtfFechaDesde.textContent = "⏳ Consultando DTF...";
+                dtfTasaEfectivaAnual.textContent = "";
+                try {
+
+                    const response = await fetch("http://127.0.0.1:8000/dtf");
+                    const data = await response.json();
+                    if (data.error) {
+                        dtfFechaDesde.textContent = "❌ Error: " + data.error;
+                    } else {
+                        dtfFechaDesde.textContent = `Fecha Inicio: ${data.fecha_desde} (${data.pk_fecha_desde})`;
+                        dtfFechaHasta.textContent = `Fecha Final: ${data.fecha_hasta} (${data.pk_fecha_hasta})`;
+                        dtfTasaEfectivaAnual.textContent = `DTF: ${data.tasa_efectiva_anual} %`;
+                        alert(data.message);
+                    }
+                    dtfInfo.classList.remove("hidden"); // Mostrar resultado
+
+                } catch (error) {
+
+                    dtfFechaDesde.textContent = "❌ Error de conexión con el servidor.";
+                    dtfInfo.classList.remove("hidden");
+
+                }
+            });
+        </script>
+    </body>
+</html>

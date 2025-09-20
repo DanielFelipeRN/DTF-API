@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Asimovian&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.neon-green { 
+    color: #39ff14; 
+}
+.bg-neon-green { 
+    background-color: #39ff14; 
+}
+.hover-bg-neon-green:hover {
+    background-color: #32e212;
+}
+.asimovian-regular {
+  font-family: "Asimovian", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.gloock-regular {
+  font-family: "Gloock", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.gruppo-regular {
+  font-family: "Gruppo", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+    font-family: "Chettavissto";
+    src: url("fonts/chettavissto.woff2") format("woff2"),
+        url("fonts/chettavissto.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+.chetta{
+    font-family: "Chettavissto", sans-serif;
+}
+@font-face {
+    font-family: "Dune";
+    src: url("fonts/dune_rise/Dune_Rise.ttf") format("truetype"),  /* TTF */
+        url("fonts/dune_rise/Dune_Rise.otf") format("opentype");  /* OTF */
+    font-weight: normal;
+    font-style: normal;
+}
+.dune {
+  font-family: "dune", sans-serif;
+}
+@font-face {
+    font-family: "SpaceAge";
+    src: url("fonts/space_age/space_age.ttf") format("truetype");  /* TTF */
+    font-weight: normal;
+    font-style: normal;
+}
+.space-age {
+  font-family: "SpaceAge", sans-serif;
+}
+@font-face {
+    font-family: "Euronism";
+    src: url("fonts/d3euronism/D3Euronism.ttf") format("truetype");  /* TTF */
+    font-weight: normal;
+    font-style: normal;
+}
+.euronism {
+  font-family: "Euronism", sans-serif;
+}
+@keyframes moveUp{
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.anim-up {
+    opacity: 0;
+    display: inline-block;
+    animation: moveUp 1s ease-out forwards;
+}
+.delay-1 {
+    animation-delay: 0.2s;
+}
+.delay-2 {
+    animation-delay: 1s;
+}
+@keyframes spin-slow {
+    from {
+        transform:  rotate(0deg);
+    }
+    to {
+        transform:  rotate(360deg);
+    }
+}
+.rotate-slow {
+    animation: spin-slow 20s linear infinite;
+}
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.fade-in-scale {
+    opacity: 0;
+    animation: appear 1s ease-out forwards;
+}
+.typewriter {
+    display:  inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 4s steps(30, end), blink .8s step-end infinite;
+}
+.typewriter2 {
+    display:  inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: .15em solid #39ff14;
+    direction: rtl;
+    animation: typing 5s steps(35, end), blink .8s step-end infinite;
+}
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        filter: blur(5px);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 5s ease-out forwards;
+}
+.poppins-thin {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.poppins-extralight {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.poppins-light {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-extrabold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.poppins-black {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.poppins-thin-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.poppins-extralight-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.poppins-light-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.poppins-regular-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.poppins-medium-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.poppins-semibold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.poppins-bold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.poppins-extrabold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.poppins-black-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
